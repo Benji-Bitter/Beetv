@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading APK</title>
+    <script type="text/javascript">
+        // Set initial countdown value
+        let countdownValue = 5;
+
+        // Function to update the countdown and trigger download
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = `Downloading in ${countdownValue} seconds`;
+
+            // Decrease the countdown value every second
+            const interval = setInterval(() => {
+                countdownValue--;
+                countdownElement.textContent = `Downloading in ${countdownValue} seconds`;
+
+                // Once countdown reaches zero, trigger download
+                if (countdownValue <= 0) {
+                    clearInterval(interval);
+                    // Trigger the download of the APK file from GitHub
+                    window.location.href = 'https://github.com/benji-bitter/Beetv/raw/main/files/beetv4.1.8.apk'; // Link to your APK file
+                }
+            }, 1000);
+        }
+
+        // Start the countdown when the page loads
+        window.onload = startCountdown;
+    </script>
+</head>
+<body>
+    <h1 id="countdown"></h1>
+    <p>After the APK file is downloaded, use a file manager or the Downloader app on your Firestick to install it.</p>
+</body>
+</html>
